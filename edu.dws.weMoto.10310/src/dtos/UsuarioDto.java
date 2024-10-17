@@ -2,7 +2,11 @@ package dtos;
 
 import java.time.LocalDate;
 
-public class usuarioDto {
+/**
+ * Clase que se encarga de los datos de los usuarios
+ * @author CMR - 10/10/24
+ */
+public class UsuarioDto {
 
 	long idUsuario;
 	String nombreUsuario ="aaaaa";
@@ -57,7 +61,7 @@ public class usuarioDto {
 	}
 	
 	
-	public usuarioDto(long idUsuario, String nombreUsuario, String apellidosUsuario, String dni, LocalDate fechaNac
+	public UsuarioDto(long idUsuario, String nombreUsuario, String apellidosUsuario, String dni, LocalDate fechaNac
 		) {
 		super();
 		this.idUsuario = idUsuario;
@@ -69,7 +73,7 @@ public class usuarioDto {
 	}
 	
 	
-	public usuarioDto() {
+	public UsuarioDto() {
 		super();
 	}
 	@Override

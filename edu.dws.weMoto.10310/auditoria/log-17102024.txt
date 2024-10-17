@@ -1,0 +1,11 @@
+Has seleccionado menu usuario 
+Has seleccionado dar alta usuario 
+Se ha producido un error: Text '05/10/1994' could not be parsed: Unable to obtain LocalDate from TemporalAccessor: {},ISO of type java.time.format.Parsed 
+Has seleccionado menu usuario 
+Has seleccionado dar alta usuario 
+Se ha producido un error: Text '05/10/1994' could not be parsed: Unable to obtain LocalDate from TemporalAccessor: {},ISO of type java.time.format.Parsed 
+Has seleccionado modificar usuario 
+Has seleccionado volver 
+Has seleccionado menu club 
+Has seleccionado dar alta club 
+Se ha producido un error: Cannot invoke "java.sql.Connection.prepareStatement(String)" because "servicios.ConsultaImplementacion.connection" is null 

@@ -1,0 +1,24 @@
+Has seleccionado menu usuario 
+Has seleccionado eliminar usuario 
+Has seleccionado volver 
+Has seleccionado cerrar aplicacion 
+Has seleccionado menu club 
+Has seleccionado dar alta club 
+Has seleccionado menu club 
+Has seleccionado dar alta club 
+Se ha producido un error: Cannot invoke "String.isEmpty()" because "str" is null 
+Has seleccionado menu club 
+Has seleccionado dar alta club 
+Has seleccionado eliminar club 
+Has seleccionado eliminar club 
+Has seleccionado menu club 
+Has seleccionado eliminar club 
+Se ha producido un error: Cannot invoke "String.isEmpty()" because "str" is null 
+Has seleccionado menu club 
+Has seleccionado eliminar club 
+Has seleccionado eliminar club 
+Has seleccionado menu club 
+Has seleccionado eliminar club 
+Has seleccionado menu club 
+Has seleccionado eliminar club 
+Se ha producido un error: For input string: "wew" 

@@ -1,6 +1,6 @@
 package servicios;
 
-public interface conexionInterfaz {
+public interface ConexionInterfaz {
 
 	public void conexionBSDT();
 }

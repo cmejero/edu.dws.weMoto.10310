@@ -2,10 +2,14 @@ package servicios;
 
 import java.util.Scanner;
 
-import javax.annotation.processing.SupportedSourceVersion;
+/**
+ * Clase que se encarga de implementar al menu interfaz
+ * @author CMR - 10/10/24	 
+ */
+public class MenuImplementacion implements MenuInterfaz {
 
-public class menuImplementacion implements menuInterfaz {
-
+	FicheroInterfaz fi = new FicheroImplementacion();
+	
 	public int menuYseleccionPrincipal(Scanner sc) {
 		int opcionUsuario;
 		System.out.println("####################");
@@ -20,81 +24,110 @@ public class menuImplementacion implements menuInterfaz {
 	}
 
 	public void menuUsuario(Scanner sc) {
-		usuarioInterfaz ui = new usuarioImplementacion();
+		
+		ConsultaInterfaz ci = new ConsultaImplementacion();
+		
 		int opcion;
 		boolean esVolver = false;
 		do {
+			try {
+				opcion = menuYseleccionUsuarios(sc);
+				switch (opcion) {
 
-			opcion = menuYseleccionUsuarios(sc);
-			switch (opcion) {
+				case 0:
+					System.out.println("Has seleccionado volver");
+					fi.escribirFicheroLog("Has seleccionado volver");
+					esVolver = true;
+					break;
 
-			case 0:
-				System.out.println("Has seleccionado volver");
-				esVolver = true;
-				break;
+				case 1:
+					System.out.println("Has seleccionado dar alta usuario");
+					fi.escribirFicheroLog("Has seleccionado dar alta usuario");
+					ci.altaUsuarioBSDT(sc);
+					break;
 
-			case 1:
-				System.out.println("Has seleccionado dar alta usuario");
-				ui.altaUsuario(sc);
-				break;
+				case 2:
+					System.out.println("Has seleccionado modificar usuario ");
+					fi.escribirFicheroLog("Has seleccionado modificar usuario");
+					ci.modificarUsuarioBSDT(sc);
+					break;
 
-			case 2:
-				System.out.println("Has seleccionado modificar usuario ");
-				ui.modificarUsuario(sc);
-				break;
+				case 3:
+					System.out.println("Has seleccionado eliminar usuario");
+					fi.escribirFicheroLog("Has seleccionado eliminar usuario");
+					ci.EliminarUsuarioBSDT( sc);
+					break;
 
-			case 3:
-				System.out.println("Has seleccionado eliminar usuario");
-				ui.eliminarUsuario(sc);
-				break;
-
-			default:
-				System.out.println("La opcion seleccionada no correspone con ninguna");
-				break;
-			}
-
+				default:
+					System.out.println("La opcion seleccionada no correspone con ninguna");
+					fi.escribirFicheroLog("La opcion seleccionada no correspone con ninguna");
+					break;
+				}
+				
+			} catch (Exception e) {
+				System.out.println("Se ha producido un error, intentelo más tarde");
+				fi.escribirFicheroLog("Se ha producido un error: ".concat(e.getMessage()));
+				
+			}finally {}
 		} while (!esVolver);
 
 	}
 
 	public void menuClub(Scanner sc) {
-		usuarioInterfaz ui = new usuarioImplementacion();
+		ConsultaInterfaz ci = new ConsultaImplementacion();
 		int opcion;
 		boolean esVolver = false;
 		do {
+			try {
 
 			opcion = menuYseleccionClubes(sc);
 			switch (opcion) {
 
 			case 0:
 				System.out.println("Has seleccionado volver");
+				fi.escribirFicheroLog("Has seleccionado volver");
 				esVolver = true;
 				break;
 
 			case 1:
 				System.out.println("Has seleccionado dar alta club");
-				ui.altaUsuario(sc);
+				fi.escribirFicheroLog("Has seleccionado dar alta club");
+				ci.altaClubBSDT(sc);
 				break;
 
 			case 2:
 				System.out.println("Has seleccionado modificar club ");
-
+				fi.escribirFicheroLog("Has seleccionado modificar club");
+				ci.modificarClubBSDT(sc);
 				break;
 
 			case 3:
 				System.out.println("Has seleccionado eliminar club");
-
+				fi.escribirFicheroLog("Has seleccionado eliminar club");
+				ci.EliminarClubBSDT(sc);
 				break;
 
 			default:
 				System.out.println("La opcion seleccionada no correspone con ninguna");
+				fi.escribirFicheroLog("La opcion seleccionada no correspone con ninguna");
 				break;
 			}
-
+			
+			}catch(Exception e) {
+				System.out.println("Se ha producido un error, intentelo más tarde");
+				fi.escribirFicheroLog("Se ha producido un error: ".concat(e.getMessage()));
+			}finally {}
+			
 		} while (!esVolver);
 
 	}
 
+	/**
+	 * Metodo que se encarga de mostrar las diferentes opciones del menu usuario
+	 * @author CMR - 10/10/24	
+	 * @param sc
+	 * @return
+	 */
 	private int menuYseleccionUsuarios(Scanner sc) {
 
 		int opcionUsuario;
@@ -109,7 +142,14 @@ public class menuImplementacion implements menuInterfaz {
 		opcionUsuario = sc.nextInt();
 		return opcionUsuario;
 	}
-
+	
+	
+	/**
+	 * Metodo que se encarga de mostrar las diferentes opciones del menu club
+	 * @author CMR - 10/10/24	
+	 * @param sc
+	 * @return
+	 */
 	private int menuYseleccionClubes(Scanner sc) {
 
 		int opcionUsuario;
@@ -125,6 +165,7 @@ public class menuImplementacion implements menuInterfaz {
 		return opcionUsuario;
 	}
 
+	
 	public int menuModificarUsuario(Scanner sc) {
 
 		int opcionUsuario;
@@ -141,9 +182,7 @@ public class menuImplementacion implements menuInterfaz {
 		return opcionUsuario;
 
 	}
-	
-	
-	
+
 	public int menuModificarClub(Scanner sc) {
 
 		int opcionUsuario;

@@ -1,0 +1,13 @@
+Has seleccionado menu usuario 
+Has seleccionado dar alta usuario 
+Has seleccionado modificar usuario 
+Has seleccionado nuevo nombre 
+Has seleccionado eliminar usuario 
+Has seleccionado volver 
+Has seleccionado menu club 
+Has seleccionado dar alta club 
+Se ha producido un error: Cannot invoke "String.isEmpty()" because "str" is null 
+Has seleccionado menu usuario 
+Has seleccionado eliminar usuario 
+Has seleccionado volver 
+Has seleccionado cerrar aplicacion 
