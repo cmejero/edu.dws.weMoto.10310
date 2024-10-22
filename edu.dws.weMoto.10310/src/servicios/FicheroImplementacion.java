@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import controladores.Inicio;
-
 /**
  * Clase que se encarga de implementar a ficheros interfaz
  * author CMR - 10/10/24

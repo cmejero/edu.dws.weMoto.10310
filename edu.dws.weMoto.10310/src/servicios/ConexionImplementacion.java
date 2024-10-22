@@ -7,13 +7,15 @@ import java.sql.SQLException;
 public class ConexionImplementacion implements ConexionInterfaz {
 
 	
-	public void conexionBSDT() {
+	public Connection conexionBSDT() {
 		
 		String url = "jdbc:postgresql://localhost:5432/bsdt_cmr";
 
 		String usuario = "postgres";
 
 		String contraseña = "Carlos120";
+		
+		Connection conexion = null;
 
 		try {
 
@@ -23,7 +25,7 @@ public class ConexionImplementacion implements ConexionInterfaz {
 
 			// Obtener la conexión usando DriverManager
 
-			Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+			conexion = DriverManager.getConnection(url, usuario, contraseña);
 
 			if (conexion != null) {
 
@@ -36,7 +38,10 @@ public class ConexionImplementacion implements ConexionInterfaz {
 		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
-
+			
 		}
+		return conexion;
 	}
+	
 }
+

@@ -1,6 +1,8 @@
 package servicios;
 
+import java.sql.Connection;
+
 public interface ConexionInterfaz {
 
-	public void conexionBSDT();
+	public Connection conexionBSDT();
 }

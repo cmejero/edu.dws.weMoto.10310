@@ -26,6 +26,7 @@ public class ConsultaImplementacion implements ConsultaInterfaz {
 	}
 
 	FicheroInterfaz fi = new FicheroImplementacion();
+	ConexionImplementacion conexionImpl = new ConexionImplementacion();
 
 	public void altaUsuarioBSDT(Scanner sc) {
 
@@ -41,14 +42,14 @@ public class ConsultaImplementacion implements ConsultaInterfaz {
 			String dniUsuarioBSDT = sc.next();
 			System.out.println("Introduzca la fecha de nacimiento. formato(dd/MM/yyyy");
 			String fechaString = sc.next();
-			DateTimeFormatter formato = DateTimeFormatter.ofPattern(fechaString);
+			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			LocalDate fechaNacBSDT = LocalDate.parse(fechaString, formato);
 
 			UsuarioDto nuevoUsuario = new UsuarioDto(nuevoId, nombreUsuarioBSDT, apellidosUsuarioBSDT, dniUsuarioBSDT,
 					fechaNacBSDT);
 
 			Inicio.listaUsuario.add(nuevoUsuario);
-
+			connection = conexionImpl.conexionBSDT();
 			String query = "INSERT INTO usuarios (nombre, apellidos, dni, fch_nacimineto, id_usuario) VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement ps = connection.prepareStatement(query);
@@ -62,12 +63,19 @@ public class ConsultaImplementacion implements ConsultaInterfaz {
 			ps.executeUpdate();
 
 			System.out.println("Cliente añadido exitosamente.");
+			connection.close();
 
 		} catch (SQLException e) {
 			fi.escribirFicheroLog("Se ha producido un error: ".concat(e.getMessage()));
 			e.printStackTrace();
 
-		}
+		} 
+
+			
+			
+		
+	
+
 	}
 
 	public void modificarUsuarioBSDT(Scanner sc) {
